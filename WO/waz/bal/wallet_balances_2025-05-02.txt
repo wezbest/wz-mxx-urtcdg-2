@@ -1,0 +1,21 @@
+Wallet Balance Check - Fri May  2 06:53:42 PM UTC 2025
+----------------------------------------
+--- Checking Wallet: 0x991A0FF9529bbC4E1b66cdb47e44DEeD1FcEE999 ---
+Checking Sepolia...
+Sepolia Balance: 0.000001000000000000 ETH
+Checking Holesky...
+Holesky Balance: 0.999998645811461720 ETH
+-------------------------------------------------------
+--- Checking Wallet: 0x99F23c70837aa99175939077D34F20896CE8D399 ---
+Checking Sepolia...
+Sepolia Balance: 0.000000000000000000 ETH
+Checking Holesky...
+Holesky Balance: 0.000000000000000000 ETH
+-------------------------------------------------------
+--- Checking Wallet: 0x995D96C5f70087cd6eA3c4F5eB8Ab7DeC3fDbe99 ---
+Checking Sepolia...
+Sepolia Balance: 0.000000000000000000 ETH
+Checking Holesky...
+Holesky Balance: 0.000000000000000000 ETH
+-------------------------------------------------------
+Balance Check Completed Successfully.
