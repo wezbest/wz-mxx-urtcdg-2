@@ -1,0 +1,10 @@
+[package]
+name = "t1"
+version = "0.1.0"
+edition = "2024"
+description = "A simple Rust program to demonstrate the use of cfonts and yansi crates"
+authors = ["booty"]
+
+[dependencies]
+cfonts = "1.2.0"
+yansi = "1.0.1"
