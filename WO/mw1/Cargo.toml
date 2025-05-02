@@ -1,0 +1,15 @@
+[package]
+name = "mw1"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cfonts = "1.2.0"
+rand = "0.9.1"
+yansi = "1.0.1"
+
+[profile.release]
+opt-level = 'z' # Extreme size optimization
+lto = true
+panic = 'abort' # Slightly smaller binary (removes panic strings)
+strip = true    # Automatically strip debug symbols

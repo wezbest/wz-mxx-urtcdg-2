@@ -1,0 +1,339 @@
+Build and run tests
+
+This command builds test binaries and queries them for the tests they contain, then runs each test
+in parallel.
+
+For more information, see <https://nexte.st/docs/running>.
+
+Usage: cargo nextest run [OPTIONS] [FILTERS]... [-- <FILTERS_AND_ARGS>...]
+
+Arguments:
+  [FILTERS]...
+          Test name filters
+
+  [FILTERS_AND_ARGS]...
+          Test name filters and emulated test binary arguments.
+          
+          Supported arguments:
+           - --ignored:         Only run ignored tests
+           - --include-ignored: Run both ignored and non-ignored tests
+           - --skip PATTERN:    Skip tests that match the pattern
+           - --exact:           Run tests that exactly match patterns after `--`
+
+Options:
+  -v, --verbose
+          Verbose output
+          
+          [env: NEXTEST_VERBOSE=]
+
+      --color <WHEN>
+          Produce color output: auto, always, never
+          
+          [env: CARGO_TERM_COLOR=]
+          [default: auto]
+
+  -h, --help
+          Print help (see a summary with '-h')
+
+Package selection:
+  -p, --package <PACKAGES>
+          Package to test
+
+      --workspace
+          Test all packages in the workspace
+
+      --exclude <EXCLUDE>
+          Exclude packages from the test
+
+      --all
+          Alias for --workspace (deprecated)
+
+Target selection:
+  --lib
+          Test only this package's library unit tests
+
+  --bin <BIN>
+          Test only the specified binary
+
+  --bins
+          Test all binaries
+
+  --example <EXAMPLE>
+          Test only the specified example
+
+  --examples
+          Test all examples
+
+  --test <TEST>
+          Test only the specified test target
+
+  --tests
+          Test all targets
+
+  --bench <BENCH>
+          Test only the specified bench target
+
+  --benches
+          Test all benches
+
+  --all-targets
+          Test all targets
+
+Feature selection:
+  -F, --features <FEATURES>
+          Space or comma separated list of features to activate
+
+      --all-features
+          Activate all available features
+
+      --no-default-features
+          Do not activate the `default` feature
+
+Compilation options:
+      --build-jobs <N>
+          Number of build jobs to run
+
+  -r, --release
+          Build artifacts in release mode, with optimizations
+
+      --cargo-profile <NAME>
+          Build artifacts with the specified Cargo profile
+
+      --target <TRIPLE>
+          Build for the target triple
+
+      --target-dir <DIR>
+          Directory for all generated artifacts
+
+      --unit-graph
+          Output build graph in JSON (unstable)
+
+      --timings[=<FMTS>]
+          Timing output formats (unstable) (comma separated): html, json
+
+Manifest options:
+  --manifest-path <PATH>
+          Path to Cargo.toml
+
+  --frozen
+          Require Cargo.lock and cache are up to date
+
+  --locked
+          Require Cargo.lock is up to date
+
+  --offline
+          Run without accessing the network
+
+Other Cargo options:
+      --cargo-quiet...
+          Do not print cargo log messages (specify twice for no Cargo output at all)
+
+      --cargo-verbose...
+          Use cargo verbose output (specify twice for very verbose/build.rs output)
+
+      --ignore-rust-version
+          Ignore `rust-version` specification in packages
+
+      --future-incompat-report
+          Outputs a future incompatibility report at the end of the build
+
+      --config <KEY=VALUE>
+          Override a Cargo configuration value
+
+  -Z <FLAG>
+          Unstable (nightly-only) flags to Cargo, see 'cargo -Z help' for details
+
+Filter options:
+      --run-ignored <WHICH>
+          Run ignored tests
+
+          Possible values:
+          - default: Run non-ignored tests
+          - only:    Run ignored tests
+          - all:     Run both ignored and non-ignored tests
+
+      --partition <PARTITION>
+          Test partition, e.g. hash:1/2 or count:2/3
+
+      --platform-filter <PLATFORM>
+          Filter test binaries by build platform (DEPRECATED)
+          
+          Instead, use -E with 'platform(host)' or 'platform(target)'.
+          
+          [default: any]
+          [possible values: target, host, any]
+
+  -E, --filterset <EXPR>
+          Test filterset (see 
+          <https://nexte.st/docs/filtersets>)
+
+      --ignore-default-filter
+          Ignore the default filter configured in the profile.
+          
+          By default, all filtersets are intersected with the default filter configured in the
+          profile. This flag disables that behavior.
+          
+          This flag doesn't change the definition of the `default()` filterset.
+
+Runner options:
+      --no-run
+          Compile, but don't run tests
+
+  -j, --test-threads <N>
+          Number of tests to run simultaneously [possible values: integer or "num-cpus"] [default:
+          from profile]
+          
+          [env: NEXTEST_TEST_THREADS=]
+          [aliases: jobs]
+
+      --retries <N>
+          Number of retries for failing tests [default: from profile]
+          
+          [env: NEXTEST_RETRIES=]
+
+      --fail-fast
+          Cancel test run on the first failure
+          
+          [aliases: ff]
+
+      --no-fail-fast
+          Run all tests regardless of failure
+          
+          [aliases: nff]
+
+      --max-fail <N>
+          Number of tests that can fail before exiting test run [possible values: integer or "all"]
+
+      --no-tests <ACTION>
+          Behavior if there are no tests to run [default: fail]
+          
+          [env: NEXTEST_NO_TESTS=]
+
+          Possible values:
+          - pass: Silently exit with code 0
+          - warn: Produce a warning and exit with code 0
+          - fail: Produce an error message and exit with code 4
+
+      --no-capture
+          Run tests serially and do not capture output
+
+Reporter options:
+  --failure-output <WHEN>
+          Output stdout and stderr on failure
+          
+          [env: NEXTEST_FAILURE_OUTPUT=]
+          [possible values: immediate, immediate-final, final, never]
+
+  --success-output <WHEN>
+          Output stdout and stderr on success
+          
+          [env: NEXTEST_SUCCESS_OUTPUT=]
+          [possible values: immediate, immediate-final, final, never]
+
+  --status-level <LEVEL>
+          Test statuses to output
+          
+          [env: NEXTEST_STATUS_LEVEL=]
+          [possible values: none, fail, retry, slow, leak, pass, skip, all]
+
+  --final-status-level <LEVEL>
+          Test statuses to output at the end of the run
+          
+          [env: NEXTEST_FINAL_STATUS_LEVEL=]
+          [possible values: none, fail, flaky, slow, skip, pass, all]
+
+  --hide-progress-bar
+          Do not display the progress bar
+          
+          [env: NEXTEST_HIDE_PROGRESS_BAR=]
+
+  --no-input-handler
+          Disable handling of input keys from the terminal.
+          
+          By default, when running a terminal, nextest accepts the `t` key to dump test information.
+          This flag disables that behavior.
+          
+          [env: NEXTEST_NO_INPUT_HANDLER=]
+
+  --message-format <FORMAT>
+          Format to use for test results (experimental)
+          
+          [env: NEXTEST_MESSAGE_FORMAT=]
+
+          Possible values:
+          - human:             The default output format
+          - libtest-json:      Output test information in the same format as libtest
+          - libtest-json-plus: Output test information in the same format as libtest, with a
+            `nextest` subobject that includes additional metadata
+
+  --message-format-version <VERSION>
+          Version of structured message-format to use (experimental).
+          
+          This allows the machine-readable formats to use a stable structure for consistent
+          consumption across changes to nextest. If not specified, the latest version is used.
+          
+          [env: NEXTEST_MESSAGE_FORMAT_VERSION=]
+
+Reuse build options:
+  --archive-file <PATH>
+          Path to nextest archive
+
+  --archive-format <FORMAT>
+          Archive format
+          
+          [default: auto]
+          [possible values: auto, tar-zst]
+
+  --extract-to <DIR>
+          Destination directory to extract archive to [default: temporary directory]
+
+  --extract-overwrite
+          Overwrite files in destination directory while extracting archive
+
+  --persist-extract-tempdir
+          Persist extracted temporary directory
+
+  --cargo-metadata <PATH>
+          Path to cargo metadata JSON
+
+  --workspace-remap <PATH>
+          Remapping for the workspace root
+
+  --binaries-metadata <PATH>
+          Path to binaries-metadata JSON
+
+  --target-dir-remap <PATH>
+          Remapping for the target directory
+
+Config options:
+      --config-file <PATH>
+          Config file [default: workspace-root/.config/nextest.toml]
+
+      --tool-config-file <TOOL:ABS_PATH>
+          Tool-specific config files
+          
+          Some tools on top of nextest may want to set up their own default configuration but
+          prioritize user configuration on top. Use this argument to insert configuration that's
+          lower than --config-file in priority but above the default config shipped with nextest.
+          
+          Arguments are specified in the format "tool:abs_path", for example
+          "my-tool:/path/to/nextest.toml" (or "my-tool:C:\\path\\to\\nextest.toml" on Windows).
+          Paths must be absolute.
+          
+          This argument may be specified multiple times. Files that come later are lower priority
+          than those that come earlier.
+
+      --override-version-check
+          Override checks for the minimum version defined in nextest's config.
+          
+          Repository and tool-specific configuration files can specify minimum required and
+          recommended versions of nextest. This option overrides those checks.
+
+  -P, --profile <PROFILE>
+          The nextest profile to use.
+          
+          Nextest's configuration supports multiple profiles, which can be used to set up different
+          configurations for different purposes. (For example, a configuration for local runs and
+          one for CI.) This option selects the profile to use.
+          
+          [env: NEXTEST_PROFILE=]
