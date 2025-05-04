@@ -60,6 +60,20 @@ impl Account {
             self.id, self.holder, self.balance
         )
     }
+
+    // Summary colors
+
+    fn summary_colors(&self) -> String {
+        format!(
+            "{}: {}, {}: {}, {}: {}",
+            Paint::blue("Account ID").bold(),
+            Paint::cyan(self.id).bold(),
+            Paint::blue("Holder").bold(),
+            Paint::green(self.holder).bold(),
+            Paint::blue("Balance").bold(),
+            Paint::yellow(self.balance).bold()
+        )
+    }
 }
 
 // Bank Struct that holds the Account structs
