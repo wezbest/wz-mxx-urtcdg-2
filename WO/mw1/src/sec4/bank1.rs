@@ -76,6 +76,10 @@ impl Bank {
     fn add_account(&mut self, account: Account) {
         self.accounts.push(account);
     }
+
+    fn total_balance(&self) -> i32 {
+        self.accounts.iter().map(|a| a.balance).sum()
+    }
 }
 
 //// Utility Functions Here ////////////
@@ -96,6 +100,9 @@ fn sb_main_bank() {
 
     // Withdraw some money
     account.withdraw(5);
+
+    // Write summary
+    println!("Account Summary: {}", account.summary());
 
     bank.add_account(account);
 
