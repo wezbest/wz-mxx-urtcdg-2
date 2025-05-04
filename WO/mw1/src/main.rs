@@ -6,7 +6,8 @@ Main entry point for the Rust application.
 mod utils;
 // mod sec3;
 // mod exc;
-mod sec4;
+// mod sec4;
+mod sec5;
 
 // use sec3::bank1::bank1_main;
 // use conc::exc26::exc26_main;
@@ -17,8 +18,9 @@ mod sec4;
 // use conc::mur35::mur35_main;
 // use conc::copy28::kopy28_main;
 // use sec4::wo1::wo1_main;
-use sec4::bank1::bank1_main;
+// use sec4::bank1::bank1_main;
+use sec5::work1::work1_main;
 
 fn main() {
-    bank1_main();
+    work1_main();
 }
