@@ -108,16 +108,16 @@ fn sb_main_bank() {
     // Get input for deposit
     // let deposit_amount = get_input_amount();
     // Deposit and withdraw some money
-    account.deposit(10);
+    account.deposit(100);
     account.withdraw(5);
 
     account2.deposit(10);
     account2.withdraw(5);
 
-    account3.deposit(10);
+    account3.deposit(200);
     account3.withdraw(5);
 
-    account4.deposit(10);
+    account4.deposit(3000);
     account4.withdraw(5);
 
     bank.add_account(account);
