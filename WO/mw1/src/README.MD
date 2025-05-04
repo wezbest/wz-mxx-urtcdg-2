@@ -16,3 +16,5 @@
 |   [`sec3`](./sec3/)   |                                Section 3 work in this folder                                 |
 |   [`conc`](./conc/)   |                                   Testing varius concepts                                    |
 |    [`exc`](./exc/)    |                                    Exercises from lesson                                     |
+|   [`sec4`](./sec4/)   |                           Section 4 about ownership and lifetimes                            |
+|   [`sec5`](./sec5/)   |                             Section 5 - Building a media catalog                             |
