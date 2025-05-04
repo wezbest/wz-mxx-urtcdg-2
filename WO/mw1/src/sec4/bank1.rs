@@ -101,16 +101,29 @@ fn sb_main_bank() {
 
     let mut bank = Bank::new();
     let mut account = Account::new(1, "Alice".to_string());
+    let mut account2 = Account::new(2, "Bob".to_string());
+    let mut account3 = Account::new(3, "Charlie".to_string());
+    let mut account4 = Account::new(4, "Dave".to_string());
 
     // Get input for deposit
     // let deposit_amount = get_input_amount();
     // Deposit and withdraw some money
     account.deposit(10);
-
-    // Withdraw some money
     account.withdraw(5);
 
+    account2.deposit(10);
+    account2.withdraw(5);
+
+    account3.deposit(10);
+    account3.withdraw(5);
+
+    account4.deposit(10);
+    account4.withdraw(5);
+
     bank.add_account(account);
+    bank.add_account(account2);
+    bank.add_account(account3);
+    bank.add_account(account4);
 
     println!("Bank: {:#?}", bank.summary());
     println!("Total balance: {}", bank.total_balance());
