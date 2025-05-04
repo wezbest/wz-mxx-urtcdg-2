@@ -77,8 +77,26 @@ impl Bank {
         self.accounts.push(account);
     }
 
+    // Total balane function of the accounts
     fn total_balance(&self) -> i32 {
         self.accounts.iter().map(|account| account.balance).sum()
+    }
+
+    // Summary function of the bank
+    fn summary(&self) -> Vec<String> {
+        self.accounts
+            .iter()
+            .map(|account| account.summary())
+            .collect()
+    }
+
+    // Print the bank accounts
+    fn magenta(&self) -> String {
+        let mut result = String::new();
+        for account in &self.accounts {
+            result.push_str(&format!("{}\n", Paint::magenta(account.summary())));
+        }
+        result
     }
 }
 
