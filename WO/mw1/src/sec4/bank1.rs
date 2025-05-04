@@ -67,11 +67,11 @@ impl Account {
         format!(
             "{}: {}, {}: {}, {}: {}",
             Paint::blue("Account ID").bold(),
-            Paint::cyan(self.id).bold(),
+            Paint::cyan(&self.id).bold(),
             Paint::blue("Holder").bold(),
-            Paint::green(self.holder).bold(),
+            Paint::green(&self.holder).bold(),
             Paint::blue("Balance").bold(),
-            Paint::yellow(self.balance).bold()
+            Paint::yellow(&self.balance).bold()
         )
     }
 }
@@ -97,10 +97,18 @@ impl Bank {
     }
 
     // Summary function of the bank
-    fn summary(&self) -> Vec<String> {
+    // fn summary(&self) -> Vec<String> {
+    //     self.accounts
+    //         .iter()
+    //         .map(|account| account.summary())
+    //         .collect::<Vec<String>>()
+    // }
+
+    // Summary colors
+    fn summary_colors(&self) -> Vec<String> {
         self.accounts
             .iter()
-            .map(|account| account.summary())
+            .map(|account| account.summary_colors())
             .collect::<Vec<String>>()
     }
 }
