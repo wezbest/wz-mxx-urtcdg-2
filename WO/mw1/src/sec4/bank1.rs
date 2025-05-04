@@ -97,12 +97,12 @@ impl Bank {
     }
 
     // Summary function of the bank
-    // fn summary(&self) -> Vec<String> {
-    //     self.accounts
-    //         .iter()
-    //         .map(|account| account.summary())
-    //         .collect::<Vec<String>>()
-    // }
+    fn summary(&self) -> Vec<String> {
+        self.accounts
+            .iter()
+            .map(|account| account.summary())
+            .collect::<Vec<String>>()
+    }
 
     // Summary colors
     fn summary_colors(&self) -> Vec<String> {
@@ -147,6 +147,7 @@ fn sb_main_bank() {
     bank.add_account(account3);
     bank.add_account(account4);
 
+    println!("Bank: {:#?}", bank.summary_colors());
     println!("Bank: {:#?}", bank.summary());
     println!("Total balance: {}", bank.total_balance());
 }
