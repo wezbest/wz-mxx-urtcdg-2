@@ -78,7 +78,7 @@ impl Bank {
     }
 
     fn total_balance(&self) -> i32 {
-        self.accounts.iter().map(|a| a.balance).sum()
+        self.accounts.iter().map(|account| account.balance).sum()
     }
 }
 
