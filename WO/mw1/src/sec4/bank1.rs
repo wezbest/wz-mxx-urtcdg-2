@@ -87,16 +87,7 @@ impl Bank {
         self.accounts
             .iter()
             .map(|account| account.summary())
-            .collect()
-    }
-
-    // Print the bank accounts
-    fn magenta(&self) -> String {
-        let mut result = String::new();
-        for account in &self.accounts {
-            result.push_str(&format!("{}\n", Paint::magenta(account.summary())));
-        }
-        result
+            .collect::<Vec<String>>()
     }
 }
 
@@ -119,10 +110,7 @@ fn sb_main_bank() {
     // Withdraw some money
     account.withdraw(5);
 
-    // Write summary
-    println!("Account Summary: {}", account.summary());
-
     bank.add_account(account);
 
-    println!("Bank: {:#?}", bank.magenta());
+    println!("Bank: {:#?}", bank.summary.magenta());
 }
