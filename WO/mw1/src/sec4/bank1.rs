@@ -7,7 +7,7 @@ Section 4  - Bank Project
 use super::but::get_input_amount;
 use crate::utils::{header, pswg};
 use std::io;
-use yansi::Paint::enable_windows_ascii;
+use yansi::{Color, Paint};
 
 //////// /// Main function call ////////////
 pub fn bank1_main() {
@@ -66,7 +66,7 @@ impl Account {
     fn summary_colors(&self) -> String {
         format!(
             "{}: {}, {}: {}, {}: {}",
-            "Account ID".green().bold(),
+            Paint::blue("Account ID").bold(),
             Paint::cyan(&self.id).bold(),
             Paint::blue("Holder").bold(),
             Paint::green(&self.holder).bold(),
