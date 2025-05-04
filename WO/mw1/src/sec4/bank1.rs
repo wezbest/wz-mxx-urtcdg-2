@@ -147,7 +147,11 @@ fn sb_main_bank() {
     bank.add_account(account3);
     bank.add_account(account4);
 
-    println!("Bank: {:#?}", bank.summary_colors());
+    // Correct way to print colored summaries
+    for summary in bank.summary_colors() {
+        println!("{}", summary);
+    }
+
     println!("Bank: {:#?}", bank.summary());
     println!("Total balance: {}", bank.total_balance());
 }
