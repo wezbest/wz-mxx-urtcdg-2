@@ -52,6 +52,14 @@ impl Account {
         self.balance -= amount;
         self.balance
     }
+
+    // summary acount function
+    fn summary(&self) -> String {
+        format!(
+            "Account ID: {}, Holder: {}, Balance: {}",
+            self.id, self.holder, self.balance
+        )
+    }
 }
 
 // Bank Struct that holds the Account structs
