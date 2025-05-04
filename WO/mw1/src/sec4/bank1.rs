@@ -112,5 +112,6 @@ fn sb_main_bank() {
 
     bank.add_account(account);
 
-    println!("Bank: {:#?}", bank.summary.magenta());
+    println!("Bank: {:#?}", bank.summary());
+    println!("Total balance: {}", bank.total_balance());
 }
